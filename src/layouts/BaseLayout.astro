@@ -6,7 +6,11 @@ import SideBar from "../components/SideBar.astro";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
-const { image, title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+const {
+  image,
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -20,9 +24,23 @@ const { image, title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.prop
       <div class="drawer-content flex flex-col bg-base-100">
         <Header title={SITE_TITLE} />
         <div class="md:flex md:justify-center">
-          <main class="p-6 pt-10 max-w-[900px]">
+          <main class="p-6 pt-10 lg:pt-0 max-w-[900px]">
             <slot />
           </main>
+          <div class="relative -z-10">
+            <div
+              class="fixed animate-blob blur-xl opacity-70 top-[40%] right-[17%] mix-blend-multiply w-72 h-72 bg-purple-300 rounded-full"
+            >
+            </div>
+            <div
+              class="fixed animate-blob animation-delay-2000 blur-xl opacity-70 top-[40%] right-[41%] mix-blend-multiply w-72 h-72 bg-yellow-300 rounded-full"
+            >
+            </div>
+            <div
+              class="fixed animate-blob animation-delay-4000 blur-xl opacity-70 top-[45%] right-[30%] mix-blend-multiply w-72 h-72 bg-pink-300 rounded-full"
+            >
+            </div>
+          </div>
         </div>
         <Footer />
       </div>
